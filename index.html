@@ -3951,10 +3951,10 @@ function TeamSearchInput({ label, color, value, onChange, onResolve, resolvedTea
     <div ref={wrapRef} style={{ position:"relative", minWidth:0 }}>
       <div style={{ fontSize:10, fontWeight:700, color, letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:6 }}>{label}</div>
       <div style={{ display:"flex", gap:4 }}>
-        <input ref={inputRef} value={value} onChange={handleInputChange}
+        <input ref={inputRef} value={value} onChange={handleInputChange} size={1}
           onKeyDown={e => { if (e.key === "Enter") handleSearch(); }}
-          placeholder="ID, name, or FPL URL"
-          style={{ flex:1, minWidth:0, background:"#060D1A", border:"1px solid "+color+"28", borderRadius:8, padding:"11px 13px", color:"#E2E8F0", fontSize:14, fontFamily:"'DM Mono',monospace" }}
+          placeholder="ID, name, or URL"
+          style={{ flex:1, minWidth:0, width:"100%", boxSizing:"border-box", background:"#060D1A", border:"1px solid "+color+"28", borderRadius:8, padding:"11px 10px", color:"#E2E8F0", fontSize:13, fontFamily:"'DM Mono',monospace" }}
           onFocus={e => e.target.style.borderColor = color+"66"} onBlur={e => e.target.style.borderColor = color+"28"}/>
         {isTextQuery && (
           <button onClick={handleSearch} disabled={loading}
