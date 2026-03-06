@@ -1,0 +1,15 @@
+{
+  "name": "fpl-h2h",
+  "version": "1.0.0",
+  "description": "FPL Team Comparison — head-to-head Fantasy Premier League analysis",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2"
+  }
+}
