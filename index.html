@@ -3929,7 +3929,7 @@ function TeamSearchInput({ label, color, value, onChange, onResolve, resolvedTea
     const rRank = resolvedTeam.overallRank;
     const rankLabel = rRank ? (rRank > 999999 ? (rRank / 1000000).toFixed(1) + "M" : rRank > 999 ? Math.round(rRank / 1000) + "K" : "#" + rRank.toLocaleString()) : null;
     return (
-      <div>
+      <div style={{ minWidth:0 }}>
         <div style={{ fontSize:10, fontWeight:700, color, letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:6 }}>{label}</div>
         <div style={{ background:"#060D1A", border:"1px solid "+color+"40", borderRadius:8, padding:"8px 12px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:8 }}>
           <div style={{ minWidth:0 }}>
@@ -3948,7 +3948,7 @@ function TeamSearchInput({ label, color, value, onChange, onResolve, resolvedTea
   const isTextQuery = value.trim() && !/^\d+$/.test(value.trim()) && !parseEntryIdFromUrl(value.trim());
 
   return (
-    <div ref={wrapRef} style={{ position:"relative" }}>
+    <div ref={wrapRef} style={{ position:"relative", minWidth:0 }}>
       <div style={{ fontSize:10, fontWeight:700, color, letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:6 }}>{label}</div>
       <div style={{ display:"flex", gap:4 }}>
         <input ref={inputRef} value={value} onChange={handleInputChange}
@@ -4448,8 +4448,8 @@ function App() {
       </div>
 
       <div style={{ maxWidth:680, margin:"28px auto", padding:"0 var(--card-pad)" }}>
-        <div style={{ background:"#0D1829", border:"1px solid #1E293B", borderRadius:14, padding:20 }}>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 32px 1fr", gap:6, marginBottom:12, alignItems:"start" }}>
+        <div style={{ background:"#0D1829", border:"1px solid #1E293B", borderRadius:14, padding:"20px var(--card-pad)" }}>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 32px 1fr", gap:6, marginBottom:12, alignItems:"start", overflow:"hidden" }}>
             <TeamSearchInput label="Team 1" color={C1} value={t1Input} onChange={setT1Input}
               resolvedTeam={resolved1} onResolve={r => { setResolved1(r); setT1Input(String(r.entryId)); }}
               onClear={() => { setResolved1(null); setT1Input(""); }}
